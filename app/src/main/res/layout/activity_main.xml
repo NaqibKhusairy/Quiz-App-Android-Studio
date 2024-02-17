@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/currentquest"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:fontFamily="@font/aldrich"
+        android:gravity="center"
+        android:text="1/6"
+        android:textSize="30sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.956"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/soalan"
+        android:layout_width="416dp"
+        android:layout_height="312dp"
+        android:gravity="center"
+        android:text="SOALAN"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/currentquest"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <LinearLayout
+        android:id="@+id/jawpnrow1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/soalan"
+        app:layout_constraintVertical_bias="0.0">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:layout_marginTop="16dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="33dp"
+            android:paddingEnd="33dp">
+
+            <Button
+                android:id="@+id/pilihanA"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="A"
+                android:backgroundTint="#FFC800"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:layout_marginRight="4dp"/>
+
+            <Button
+                android:id="@+id/pilihanB"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:text="B"
+                android:layout_weight="1"
+                android:backgroundTint="#11FF00"
+                android:gravity="center"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="4dp"/>
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="156dp"
+            android:gravity="center"
+            android:orientation="horizontal"
+            android:paddingStart="33dp"
+            android:paddingEnd="33dp">
+
+            <Button
+                android:id="@+id/pilihanC"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="#FF0000"
+                android:gravity="center"
+                android:text="C"
+                android:textColor="#FFFFFF"
+                android:layout_marginRight="4dp"/>
+
+            <Button
+                android:id="@+id/pilihanD"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:backgroundTint="#6200FF"
+                android:gravity="center"
+                android:text="D"
+                android:textColor="#FFFFFF"
+                android:layout_marginLeft="4dp"/>
+
+        </LinearLayout>
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
