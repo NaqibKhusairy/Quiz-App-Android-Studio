@@ -18,9 +18,11 @@ public class MainActivity extends AppCompatActivity {
     Button pilihanAButton, pilihanBButton, pilihanCButton, pilihanDButton;
 
     List<Question> questions;
+    List<String> userAnswers = new ArrayList<>();
+
     int currentQuestionIndex = 0;
     int markah = 0;
-    int soalanperlujawab = 6;
+    int soalanperlujawab = 10;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,15 +37,16 @@ public class MainActivity extends AppCompatActivity {
         currentquest = findViewById(R.id.currentquest);
 
         questions = new ArrayList<>();
-        questions.add(new MultipleChoiceQuestion("Apakah Maksud Bahasa Istana 'Kaus' ?", "Berjalan", "Kasut", "Berlari", "Topi", "B"));
-        questions.add(new MultipleChoiceQuestion("Kepala Dalam Bahasa Istana ialah 'Iram-Iram'?", "Betul","Salah","","","B"));
-        questions.add(new MultipleChoiceQuestion("-3+9-x+12=10\nBerapakan Nilai x?", "-8", "18", "10", "8", "D"));
-        questions.add(new MultipleChoiceQuestion("Fungsi Koroid Ialah Mencegah Pantulan Cahaya Dalam Mata",  "Betul","Salah","","","A"));
-        questions.add(new MultipleChoiceQuestion("(2p −3)(5p + 4) =", "4p^2-120", "10p^2-12", "10p^2-7p-12", "10p^2+7p-12", "C"));
-        questions.add(new MultipleChoiceQuestion("What The Meanig Of 'Skills in Economic Planning", "Kemahiran dalam Pemusnah Planning Ekonomi", "kemahiran dalam Kemelesetan Ekonomi", "Kemahiran dalam Perancangan Ekonomi", "Kemahiran dalam Inflasi", "C"));
-        questions.add(new MultipleChoiceQuestion("Negara X - kenaikan harga barang dan perkhidmatan secara berterusan\nApakah Yang Mungkin Berlaku Di Negara X ?","Deflasi", "Kemelesetan Ekonomi", "Ekonomi Negara X menigkat tinggi","Inflasi","D"));
-        questions.add(new MultipleChoiceQuestion("Sultan Ibrahim ibni Sultan Iskandar adalah Sultan Johor","Betul","Salah","","","A"));
-        questions.add(new MultipleChoiceQuestion("Hari Raya Aidil-Fitri berlangsung pada Bulan Zulhijah",  "Betul","Salah","","","B"));
+        questions.add(new MultipleChoiceQuestion("Select the suitable data type for price item", "float", "char", "bool", "int", "A"));
+        questions.add(new MultipleChoiceQuestion("Select the valid variable", "=myname","my_name","2myname","my name","B"));
+        questions.add(new MultipleChoiceQuestion("Express the CORRECT statement to write the condition statement in C\n\"C = mark is greater or equal to 40\"", "mark==40", "mark>=40", "mark=>40", "mark<40", "B"));
+        questions.add(new MultipleChoiceQuestion("Identify the acceptable way to define a constant.",  "const int code = 200;","conts int code = ‘200’;","int const code = \"200\";","int const code = 200;","A"));
+        questions.add(new MultipleChoiceQuestion("Identify the symbol that must end the C++ code statement.", "comma", "semicolon", "colon", "hash", "B"));
+        questions.add(new MultipleChoiceQuestion("Identify which is NOT the type of looping control structure.", "for", "while", "do....while", "if....else", "D"));
+        questions.add(new MultipleChoiceQuestion("Select the operator used to compare between two variables","=", "==", "++","--","B"));
+        questions.add(new MultipleChoiceQuestion("Choose the correct definition of comment in C++","Comments are parts of the source code disregard by the compiler","Comments are executed by compiler to find the meaning of the comment","Comments are executable","Comments are main structure of C++ program","A"));
+        questions.add(new MultipleChoiceQuestion("Identify the numbers of 'do.....while' loop which is guaranteed to loop",  "3","2","1","0","C"));
+        questions.add(new MultipleChoiceQuestion("Identify the number of repetitions that will occur for the following looping control structure:\n\"for(count=1; count<=10;count++)\"",  "8","9","10","11","C"));
 
         Collections.shuffle(questions);
 
@@ -101,16 +104,34 @@ public class MainActivity extends AppCompatActivity {
             Intent intent = new Intent(MainActivity.this, Markah.class);
             intent.putExtra("markah", markah);
             intent.putExtra("bilsoalan", soalanperlujawab);
+            intent.putExtra("userAnswers", new ArrayList<>(userAnswers));
             startActivity(intent);
         }
     }
 
-    private void checkAnswer(String answer) {
+    private void checkAnswer(String answer) {String userAnswer = "";
+        switch (answer) {
+            case "A":
+                userAnswer = pilihanAButton.getText().toString();
+                break;
+            case "B":
+                userAnswer = pilihanBButton.getText().toString();
+                break;
+            case "C":
+                userAnswer = pilihanCButton.getText().toString();
+                break;
+            case "D":
+                userAnswer = pilihanDButton.getText().toString();
+                break;
+        }
+
+        // Store the user's answer
+        userAnswers.add(userAnswer);
+
         if (answer.equals(questions.get(currentQuestionIndex).getCorrectAnswer())) {
             Toast.makeText(this, "True!", Toast.LENGTH_SHORT).show();
             markah++;
         }
-
         currentQuestionIndex++;
         displayQuestion();
     }

@@ -12,6 +12,9 @@
         android:theme="@style/Theme.TestQuiz"
         tools:targetApi="31">
         <activity
+            android:name=".ShowAnswer"
+            android:exported="false" />
+        <activity
             android:name=".Markah"
             android:exported="false" />
         <activity

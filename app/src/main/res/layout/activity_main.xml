@@ -71,7 +71,7 @@
                 android:layout_height="match_parent"
                 android:text="B"
                 android:layout_weight="1"
-                android:backgroundTint="#11FF00"
+                android:backgroundTint="#8400E3"
                 android:gravity="center"
                 android:textColor="#FFFFFF"
                 android:layout_marginLeft="4dp"/>
