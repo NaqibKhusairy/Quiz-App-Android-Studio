@@ -24,6 +24,8 @@ public class MainActivity extends AppCompatActivity {
     int markah = 0;
     int soalanperlujawab = 10;
 
+    String userAnswer;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
-    private void checkAnswer(String answer) {String userAnswer = "";
+    private void checkAnswer(String answer) {
         switch (answer) {
             case "A":
                 userAnswer = pilihanAButton.getText().toString();
@@ -124,7 +126,6 @@ public class MainActivity extends AppCompatActivity {
                 userAnswer = pilihanDButton.getText().toString();
                 break;
         }
-
         // Store the user's answer
         userAnswers.add(userAnswer);
 

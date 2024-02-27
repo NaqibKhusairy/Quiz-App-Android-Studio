@@ -1,6 +1,7 @@
 package com.naqib.test_quiz;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.text.HtmlCompat;
 
 import android.annotation.SuppressLint;
 import android.os.Bundle;
@@ -33,14 +34,14 @@ public class ShowAnswer extends AppCompatActivity {
 
         Q[1] = "Select the suitable data type for price item";
         Q[2] = "Select the valid variable";
-        Q[3] = "Express the CORRECT statement to write the condition statement in C\n\"C = mark is greater or equal to 40\"";
+        Q[3] = "Express the CORRECT statement to write the condition statement in C<br>\"C = mark is greater or equal to 40\"";
         Q[4] = "Identify the acceptable way to define a constant.";
         Q[5] = "Identify the symbol that must end the C++ code statement.";
         Q[6] = "Identify which is NOT the type of looping control structure.";
         Q[7] = "Select the operator used to compare between two variables";
         Q[8] = "Choose the correct definition of comment in C+";
         Q[9] = "Identify the numbers of 'do.....while' loop which is guaranteed to loop";
-        Q[10] = "Identify the number of repetitions that will occur for the following looping control structure:\n\"for(count=1; count<=10;count++)\"";
+        Q[10] = "Identify the number of repetitions that will occur for the following looping control structure:<br>\"for(count=1; count<=10;count++)\"";
 
         A[1] = "A. float";
         A[2] = "B. my_name";
@@ -54,7 +55,7 @@ public class ShowAnswer extends AppCompatActivity {
         A[10] = "C. 10";
 
         if (userAnswers != null) {
-            for (int x = 1; x <= bilsoalan; x++) {
+            for (int x = 0; x < bilsoalan; x++) {
                 if (x < userAnswers.size()) {
                     switch (userAnswers.get(x)) {
                         case "A. float":
@@ -122,11 +123,11 @@ public class ShowAnswer extends AppCompatActivity {
             }
         }
 
-        soalan.setText(Html.fromHtml("<br><br><br>Question 1 : " + Q[1] + "<br><br>Answer: " + A[1] + "<br>Your Answer: <font color='" + (A[1].equals(YA[1]) ? "green" : "red") + "'>" + YA[1] + "</font><br><br><br><br>"));
+        soalan.setText(HtmlCompat.fromHtml("<br><br><br>Question 1 : " + Q[1] + "<br><br>Answer: " + A[1] + "<br>Your Answer: <font color='" + (A[1].equals(YA[1]) ? "green" : "red") + "'>" + YA[1] + "</font><br><br><br><br>", HtmlCompat.FROM_HTML_MODE_LEGACY));
 
         for (int x = 2; x <= bilsoalan; x++) {
             if (userAnswers != null && x <= userAnswers.size()) {
-                soalan.append(Html.fromHtml("Question " + x + " : " + Q[x] + "<br><br>Answer: " + A[x] + "<br>Your Answer: <font color='" + (A[x].equals(YA[x]) ? "green" : "red") + "'>" + YA[x] + "</font><br><br><br><br>"));
+                soalan.append(HtmlCompat.fromHtml("Question " + x + " : " + Q[x] + "<br><br>Answer: " + A[x] + "<br>Your Answer: <font color='" + (A[x].equals(YA[x]) ? "green" : "red") + "'>" + YA[x] + "</font><br><br><br><br>", HtmlCompat.FROM_HTML_MODE_LEGACY));
             }
         }
     }
