@@ -41,7 +41,7 @@ public class ShowAnswer extends AppCompatActivity {
         Q[7] = "Select the operator used to compare between two variables";
         Q[8] = "Choose the correct definition of comment in C+";
         Q[9] = "Identify the numbers of 'do.....while' loop which is guaranteed to loop";
-        Q[10] = "Identify the number of repetitions that will occur for the following looping control structure:<br>\"for(count=1; count<=10;count++)\"";
+        Q[10] = "Identify the number of repetitions that will occur for the following looping control structure:<br>\"for(count=1; count&lt=10;count++)\"";
 
         A[1] = "A. float";
         A[2] = "B. my_name";
